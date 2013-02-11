@@ -524,7 +524,7 @@ public class Camera3D extends Object3D {
 	/**
 	 * Calculates a ray in global space. The ray defines by its <code>origin</code> and <code>direction</code>.
 	 * The ray goes like from the global camera position
-	 * trough the point corresponding to the viewport point with coordinates <code>viewX</code> и <code>viewY</code>.
+	 * trough the point corresponding to the viewport point with coordinates <code>viewX</code> Ð¸ <code>viewY</code>.
 	 * The ray origin placed within <code>nearClipping</code> plane.
 	 * This ray can be used in the <code>Object3D.intersectRay()</code> method.  The result writes to passed arguments.
 	 *
