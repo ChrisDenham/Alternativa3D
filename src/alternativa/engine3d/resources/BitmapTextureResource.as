@@ -125,7 +125,7 @@ package alternativa.engine3d.resources {
 		}
 
 		/**
-		 * Create MIPMAPS for textexture.
+		 * Create MIPMAPS for texture.
 		 */
 		public static function createMips(texture:Texture, bitmapData:BitmapData):void {
 			rect.width = bitmapData.width;
