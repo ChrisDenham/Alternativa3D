@@ -125,9 +125,9 @@ package alternativa.engine3d.resources {
 		}
 
 		/**
-		 * @private 
+		 * Create MIPMAPS for textexture.
 		 */
-		static alternativa3d function createMips(texture:Texture, bitmapData:BitmapData):void {
+		public static function createMips(texture:Texture, bitmapData:BitmapData):void {
 			rect.width = bitmapData.width;
 			rect.height = bitmapData.height;
 			var level:int = 1;
