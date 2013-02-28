@@ -34,6 +34,13 @@ package alternativa.engine3d.resources {
 		alternativa3d var _texture:TextureBase;
 
 		/**
+		 * Returns the uploaded texture.
+		 */
+		public function get texture():TextureBase {
+			return _texture;
+		}
+		
+		/**
 		 * @inheritDoc
 		 */
 		override public function get isUploaded():Boolean {
