@@ -33,6 +33,11 @@ package alternativa.engine3d.materials {
 		public var name:String;
 		
 		/**
+		 * Double sided material (may or may not be supported by subclass)
+		 */
+		public var doubleSided:Boolean = false;
+		
+		/**
 		 * @private 
 		 */
 		alternativa3d static const _projectProcedure:Procedure = getProjectProcedure();
@@ -103,6 +108,7 @@ package alternativa.engine3d.materials {
 		 */
 		protected function clonePropertiesFrom(source:Material):void {
 			name = source.name;
+			doubleSided = source.doubleSided;
 		}
 
 	}

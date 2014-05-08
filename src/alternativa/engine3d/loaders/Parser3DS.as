@@ -401,6 +401,10 @@ package alternativa.engine3d.loaders {
 				// Shininess strength percent
 				case 0xA041:
 					break;
+				// Double sided render
+				case 0xA081:
+					material.doubleSided = true;
+					break;
 				// Transparensy
 				case 0xA050:
 					data.position = chunkInfo.dataPosition + 6;
@@ -613,6 +617,7 @@ package alternativa.engine3d.loaders {
 				var materialData:MaterialData = materialDatas[materialName];
 				materialData.material = new ParserMaterial();
 				materialData.material.name = materialName;
+				materialData.material.doubleSided = materialData.doubleSided;
 				var mapData:MapData = materialData.diffuseMap;
 				if (mapData != null) {
 					if ((mapData.rotation != 0) ||
@@ -1406,6 +1411,7 @@ class MaterialData {
 	public var specular:uint;
 	public var glossiness:uint;
 	public var transparency:uint;
+	public var doubleSided:Boolean = false;
 	public var matrix:Matrix;
 	public var material:ParserMaterial;
 

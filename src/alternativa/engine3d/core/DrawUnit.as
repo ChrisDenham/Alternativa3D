@@ -74,6 +74,10 @@ package alternativa.engine3d.core {
 			fragmentConstantsRegistersCount = 0;
 		}
 		
+		alternativa3d function setDoubleSided(doubleSided:Boolean):void {
+			culling = doubleSided ? Context3DTriangleFace.NONE : Context3DTriangleFace.FRONT;
+		}
+		
 		alternativa3d function setTextureAt(sampler:int, texture:TextureBase):void {
 			if (uint(sampler) > 8) throw new Error("Sampler index " + sampler + " is out of bounds.");
 			if (texture == null) throw new Error("Texture is null");

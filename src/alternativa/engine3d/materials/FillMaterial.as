@@ -122,6 +122,10 @@ package alternativa.engine3d.materials {
 			}
 			// Drawcall
 			var drawUnit:DrawUnit = camera.renderer.createDrawUnit(object, program.program, geometry._indexBuffer, surface.indexBegin, surface.numTriangles, program);
+			
+			// Face culling mode
+			drawUnit.setDoubleSided(doubleSided);
+
 			// Streams
 			drawUnit.setVertexBufferAt(program.aPosition, positionBuffer, geometry._attributesOffsets[VertexAttributes.POSITION], VertexAttributes.FORMATS[VertexAttributes.POSITION]);
 			// Constants
