@@ -65,6 +65,7 @@ package alternativa.engine3d.materials {
 			"dp3 t0.w, t0, t0", // lenSqr
 			"nrm t0.xyz,t0.xyz", // L = normalize(L)
 			"dp3 t0.x,t0,i0", // dot = dot(normal, L)
+			"abs t0.x,t0.x",  // take absolute value so backs of double sided faces rendered with front normal
 			"sqt t0.w,t0.w", // len = sqt(lensqr)
 			"sub t0.w, t0.w, c2.z", // len = len - atenuationBegin
 			"div t0.y, t0.w, c2.y", // att = len/radius
