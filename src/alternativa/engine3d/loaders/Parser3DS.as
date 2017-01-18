@@ -637,6 +637,7 @@ package alternativa.engine3d.loaders {
 					}
 				}
 				for each (mapData in materialData.maps) {
+					if (mapData.filename == null || mapData.filename.length == 0) continue;
 					materialData.material.textures[mapData.channel] = new ExternalTextureResource(texturesBaseURL + mapData.filename);
 				}
 				materialData.material.colors["ambient"] = materialData.ambient;
