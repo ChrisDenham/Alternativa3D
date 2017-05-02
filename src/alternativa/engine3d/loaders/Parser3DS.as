@@ -68,7 +68,7 @@ package alternativa.engine3d.loaders {
 		 * @see #materials
 		 */
 
-		public function parse(data:ByteArray, texturesBaseURL:String = "", scale:Number = 1, respectSmoothGroups:Boolean = false):void {
+		public function parse(data:ByteArray, texturesBaseURL:String = "", scale:Number = 1, respectSmoothGroups:Boolean = false, respectAnimations:Boolean = true):void {
 			if (data.bytesAvailable < 6) return;
 			this.data = data;
 			data.endian = Endian.LITTLE_ENDIAN;
@@ -76,7 +76,7 @@ package alternativa.engine3d.loaders {
 			objects = new Vector.<Object3D>();
 			hierarchy = new Vector.<Object3D>();
 			materials = new Vector.<ParserMaterial>();
-			buildContent(texturesBaseURL, scale, respectSmoothGroups);
+			buildContent(texturesBaseURL, scale, respectSmoothGroups, respectAnimations);
 			this.data = null;
 			objectDatas = null;
 			animationDatas = null;
@@ -611,7 +611,7 @@ package alternativa.engine3d.loaders {
 			object.lens = data.readFloat();
 		}
 
-		private function buildContent(texturesBaseURL:String, scale:Number, respectSmoothGroups:Boolean):void {
+		private function buildContent(texturesBaseURL:String, scale:Number, respectSmoothGroups:Boolean, respectAnimations:Boolean):void {
 			// Calculation of matrices of texture materials
 			for (var materialName:String in materialDatas) {
 				var materialData:MaterialData = materialDatas[materialName];
@@ -651,7 +651,7 @@ package alternativa.engine3d.loaders {
 			var objectData:ObjectData;
 			var object:Object3D;
 			// Scene has hierarchically related objects and (or) specified data about objects transformations.
-			if (animationDatas != null) {
+			if (respectAnimations && animationDatas != null) {
 				if (objectDatas != null) {
 					var i:int;
 					var length:int = animationDatas.length;
